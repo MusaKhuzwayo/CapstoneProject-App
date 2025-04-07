@@ -6,10 +6,10 @@ import requests
 from io import BytesIO
 import time
 import json
-from streamlit_lottie import st_lottie
-from sklearn.linear_model import LinearRegression  # Import Linear Regression
-from prophet import Prophet  # Import Prophet
-from fuzzywuzzy import fuzz  # Import fuzzywuzzy for string matching
+import st_lottie
+import LinearRegression  # Import Linear Regression
+import Prophet  # Import Prophet
+import fuzz  # Import fuzzywuzzy for string matching
 
 
 # Set page config
