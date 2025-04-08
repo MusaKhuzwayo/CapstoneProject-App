@@ -56,6 +56,19 @@ data = pd.DataFrame({
     "Predicted_Date": ["2025-04-08"] * len(veggie_images),
 })
 
+# --- Fallback Images ---
+fallback_images = [
+    "Assets/36ac5dc3ddcc866d481bd585c277c236.jpg",
+    "Assets/images.jpeg",
+    "Assets/pexels-freestockpro-321551.jpg",
+    "Assets/pexels-mali-65174.jpg",
+    "Assets/pexels-minan1398-1638522.jpg",
+    "Assets/pexels-pixabay-255469.jpg",
+    "Assets/photo-1576763595295-c0371a32af78.jpeg",
+    "Assets/photo-1620574387735-3624d75b2dbc.jpeg",
+    "Assets/premium_photo-1675365779531-031dfdcdf947.jpeg",
+    "Assets/tomatoes-1280859_1280.jpg",
+]
 # --- Prediction models ---
 def predict_price(model_name, selected_veg):
     result = data[data["Vegetable"] == selected_veg].iloc[0].copy()
