@@ -8,16 +8,16 @@ install python-Levenshtein
 import streamlit as st
 import pandas as pd
 import numpy as np
+import plotly.express as px
 from PIL import Image
 import requests
 from io import BytesIO
 import time
 import json
-import st_lottie
-import LinearRegression  # Import Linear Regression
-import Prophet  # Import Prophet
-import fuzz  # Import fuzzywuzzy for string matching
-
+from streamlit_lottie import st_lottie
+from sklearn.linear_model import LinearRegression  # Import Linear Regression
+from prophet import Prophet  # Import Prophet
+from fuzzywuzzy import fuzz  # Import fuzzywuzzy for string matching
 
 # Set page config
 st.set_page_config(page_title="Veggie Price Predictor", layout="wide", page_icon="🥦")
