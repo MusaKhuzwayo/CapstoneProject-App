@@ -52,9 +52,9 @@ veggie_images = {
 }
 
 data = pd.DataFrame({
-    "Vegetable": list(veggie_images.keys()),  # Use keys from veggie_images
-    "Avg_Price": [12.5, 9.0, 10.2, 14.3, 7.5, 8.2, 15.0, 11.0, 7.8, 6.5, 13.2],  # Add prices for new vegetables
-    "Predicted_Date": ["2025-04-08"] * len(veggie_images),  # Adjust length for all vegetables
+    "Vegetable": ["Tomato", "Onion", "Carrot", "Broccoli", "Potato", "Brinjal", "Garlic", "Peas", "Methi", "Green Chilli", "Elephant Yam"],
+    "Avg_Price": [12.5, 9.0, 10.2, 14.3, 7.5, 8.2, 15.0, 11.0, 7.8, 6.5, 13.2],
+    "Predicted_Date": ["2025-04-08"] * 11,  # Adjust length to match the number of vegetables
 })
 
 # --- Prediction models ---
