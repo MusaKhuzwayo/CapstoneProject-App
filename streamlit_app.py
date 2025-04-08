@@ -38,17 +38,17 @@ if lottie_veggie is None:
 
 # --- Mock data and images ---
 veggie_images = {
-    "Tomato": "https://images.app.goo.gl/DUyeghsXDKPsm4Zk9",
-    "Onion": "https://images.app.goo.gl/8mRtoRDVWQPyVB9e7",
-    "Carrot": "https://images.app.goo.gl/qSHLvTPmPRaEJrgX7",
+    "Tomato": "assets/tomatoes-1280859_1280.jpg",  
+    "Onion": "assets/photo-1620574387735-3624d75b2dbc.jpeg",  
+    "Carrot": "assets/pexels-mali-65174.jpg",  
     "Broccoli": "https://source.unsplash.com/600x400/?broccoli",
-    "Potato": "https://images.app.goo.gl/QXt29HnF3TgsZJp8A",
-    "Brinjal": "https://images.app.goo.gl/NdBkfpqC6SCumAVD8",
-    "Garlic": "https://images.app.goo.gl/1nM9L6x1Egmki5qR8", 
-    "Peas": "https://images.app.goo.gl/SXqW4Tuhqz5qbBDQ6", 
-    "Methi": "https://images.app.goo.gl/nSdamNVsQk5Ai7uu6",
-    "Green Chilli": "https://images.app.goo.gl/aih69mDnYKCSL43n8",
-    "Elephant Yam": "https://images.app.goo.gl/LZXLjT4pgu33n9mK6",
+    "Potato": "assets/premium_photo-1675365779531-031dfdcdf947.jpeg",  
+    "Brinjal": "assets/pexels-freestockpro-321551.jpg",  
+    "Garlic": "assets/pexels-minan1398-1638522.jpg",  
+    "Peas": "assets/pexels-pixabay-255469.jpg",  
+    "Methi": "assets/36ac5dc3ddcc866d481bd585c277c236.jpg",
+    "Green Chilli": "assets/photo-1576763595295-c0371a32af78.jpeg",  
+    "Elephant Yam": "assets/images.jpeg",
 }
 
 data = pd.DataFrame({
