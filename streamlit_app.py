@@ -15,7 +15,6 @@ from fuzzywuzzy import fuzz  # Import fuzzywuzzy for string matching
 # Set page config
 st.set_page_config(page_title="Veggie Price Predictor", layout="wide", page_icon="🥦")
 
-
 # --- Load animation ---
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -24,13 +23,13 @@ def load_lottieurl(url: str):
     return r.json()
 
 # Sample Lottie animation with fallback
-lottie_url = "https://assets2.lottiefiles.com/packages/lf20_bu3xvx.json"
+lottie_url = "https://assets2.lottiefiles.com/packages/lf20_bu3xvx.json"  # Replace with correct URL
 lottie_veggie = load_lottieurl(lottie_url)
 
 if lottie_veggie is None:
     st.warning("Lottie animation loading failed. Using fallback (if available).")
     try:
-        with open("fallback_animation.json", "r") as f:
+        with open("assets/fallback_animation.json", "r") as f:  # Update path if necessary
             lottie_veggie = json.load(f)
     except FileNotFoundError:
         st.warning("Fallback animation not found.")
