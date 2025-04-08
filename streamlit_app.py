@@ -125,7 +125,7 @@ with st.sidebar:
     # --- Main Content Area ---
     if st.button("Predict"):
         with st.spinner("Crunching the numbers..."):
-        time.sleep(2)  # simulate prediction
+             time.sleep(2)  # simulate prediction
 
         # --- Error handling ---
         if selected_veg not in veggie_images:
