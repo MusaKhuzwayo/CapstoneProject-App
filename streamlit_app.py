@@ -130,7 +130,6 @@ with st.sidebar:
         # --- Error handling ---
         if selected_veg not in veggie_images:
             st.error("Invalid vegetable selection.")
-            return
 
         # --- Prediction ---
         result = predict_price(model, selected_veg)
