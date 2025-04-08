@@ -1,3 +1,10 @@
+install streaMLIT
+install streamlit-lottie
+install scikit-learn
+install prophet
+install fuzzywuzzy
+install python-Levenshtein
+
 import streamlit as st
 import pandas as pd
 import numpy as np
