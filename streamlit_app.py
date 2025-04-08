@@ -29,7 +29,7 @@ lottie_veggie = load_lottieurl(lottie_url)
 if lottie_veggie is None:
     st.warning("Lottie animation loading failed. Using fallback (if available).")
     try:
-        with open("assets/fallback_animation.json", "r") as f:
+        with open("Assets/fallback_animation.json", "r") as f:
             lottie_veggie = json.load(f)
     except FileNotFoundError:
         st.warning("Fallback animation not found.")
@@ -37,17 +37,17 @@ if lottie_veggie is None:
 
 # --- Mock data and images ---
 veggie_images = {
-    "Tomato": "tomatoes-1280859_1280.jpg",
-    "Onion": "photo-1620574387735-3624d75b2dbc.jpeg",
-    "Carrot": "pexels-mali-65174.jpg",
+    "Tomato": "Assets/tomatoes-1280859_1280.jpg",
+    "Onion": "Assets/photo-1620574387735-3624d75b2dbc.jpeg",
+    "Carrot": "Assets/pexels-mali-65174.jpg",
     "Broccoli": "https://source.unsplash.com/600x400/?broccoli",
-    "Potato": "premium_photo-1675365779531-031dfdcdf947.jpeg",
-    "Brinjal": "pexels-freestockpro-321551.jpg",
-    "Garlic": "pexels-minan1398-1638522.jpg",
-    "Peas": "pexels-pixabay-255469.jpg",
-    "Methi": "36ac5dc3ddcc866d481bd585c277c236.jpg",
-    "Green Chilli": "photo-1576763595295-c0371a32af78.jpeg",
-    "Elephant Yam": "images.jpeg",
+    "Potato": "Assets/premium_photo-1675365779531-031dfdcdf947.jpeg",
+    "Brinjal": "Assets/pexels-freestockpro-321551.jpg",
+    "Garlic": "Assets/pexels-minan1398-1638522.jpg",
+    "Peas": "Assets/pexels-pixabay-255469.jpg",
+    "Methi": "Assets/36ac5dc3ddcc866d481bd585c277c236.jpg",
+    "Green Chilli": "Assets/photo-1576763595295-c0371a32af78.jpeg",
+    "Elephant Yam": "Assets/images.jpeg",
 }
 
 data = pd.DataFrame({
