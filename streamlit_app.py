@@ -121,38 +121,41 @@ with st.sidebar:
         "Linear Regression", "Decision Tree", "Random Forest", "SVR", "XGBoost", "Prophet"
     ])
     st.markdown("---")
+    
+    # --- Main Content Area ---
     if st.button("Predict"):
-        with st.spinner("Crunching the numbers..."):
-            time.sleep(2)  # simulate prediction
+    with st.spinner("Crunching the numbers..."):
+        time.sleep(2)  # simulate prediction
 
-            # --- Error handling ---
-            if selected_veg not in veggie_images:
-                st.error("Invalid vegetable selection.")
+        # --- Error handling ---
+        if selected_veg not in veggie_images:
+            st.error("Invalid vegetable selection.")
+            return
 
-            # --- Prediction ---
-            result = predict_price(model, selected_veg) 
+        # --- Prediction ---
+        result = predict_price(model, selected_veg)
 
-            # --- Layout ---
-            col1, col2 = st.columns([1, 1])
+        # --- Layout ---
+        col1, col2, col3 = st.columns([1, 2, 1])  # Create 3 columns
 
-            with col1:
-                st.image(veggie_images[selected_veg], caption=selected_veg, use_container_width=True)
+        with col1:  # Left bar for image
+            st.image(veggie_images[selected_veg], caption=selected_veg, use_container_width=True)
 
-            with col2:
-                st.markdown(f"### 🥗 Prediction Results for {selected_veg}")
-                st.markdown(f"**Model Used:** {model}")
-                st.markdown(f"**Predicted Avg Price:** R{result['Avg_Price']:.2f}")
-                st.markdown(f"**Expected Date:** {result['Predicted_Date']}")
+        with col2:  # Middle column for predictions
+            st.markdown(f"### 🥗 Prediction Results for {selected_veg}")
+            st.markdown(f"**Model Used:** {model}")
+            st.markdown(f"**Predicted Avg Price:** R{result['Avg_Price']:.2f}")
+            st.markdown(f"**Expected Date:** {result['Predicted_Date']}")
 
-                # --- Price Trend Chart ---
-                chart_data = pd.DataFrame({
-                    "Day": ["Yesterday", "Today", "Tomorrow"],
-                    "Price": [result["Avg_Price"] * 0.95, result["Avg_Price"], result["Avg_Price"] * 1.05]
-                })
-                fig = px.line(chart_data, x="Day", y="Price", title=f"{selected_veg} Price Trend")
-                st.plotly_chart(fig, use_container_width=True)
+        with col3:  # Right bar for chart
+            chart_data = pd.DataFrame({
+                "Day": ["Yesterday", "Today", "Tomorrow"],
+                "Price": [result["Avg_Price"] * 0.95, result["Avg_Price"], result["Avg_Price"] * 1.05]
+            })
+            fig = px.bar(chart_data, x="Day", y="Price", title=f"{selected_veg} Price Trend")  # Changed to bar chart
+            st.plotly_chart(fig, use_container_width=True)
 
-                st.success("Prediction complete!") 
+        st.success("Prediction complete!")
 
 # --- Footer ---
 st.markdown("---")
