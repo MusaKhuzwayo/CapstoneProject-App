@@ -38,17 +38,23 @@ if lottie_veggie is None:
 
 # --- Mock data and images ---
 veggie_images = {
-    "Tomato": "https://source.unsplash.com/600x400/?tomato",
-    "Spinach": "https://source.unsplash.com/600x400/?spinach",
-    "Carrot": "https://source.unsplash.com/600x400/?carrot",
+    "Tomato": "https://images.app.goo.gl/DUyeghsXDKPsm4Zk9",
+    "Onion": "https://images.app.goo.gl/8mRtoRDVWQPyVB9e7",
+    "Carrot": "https://images.app.goo.gl/qSHLvTPmPRaEJrgX7",
     "Broccoli": "https://source.unsplash.com/600x400/?broccoli",
-    "Potato": "https://source.unsplash.com/600x400/?potato",
+    "Potato": "https://images.app.goo.gl/QXt29HnF3TgsZJp8A",
+    "Brinjal": "https://images.app.goo.gl/NdBkfpqC6SCumAVD8",
+    "Garlic": "https://images.app.goo.gl/1nM9L6x1Egmki5qR8", 
+    "Peas": "https://images.app.goo.gl/SXqW4Tuhqz5qbBDQ6", 
+    "Methi": "https://images.app.goo.gl/nSdamNVsQk5Ai7uu6",
+    "Green Chilli": "https://images.app.goo.gl/aih69mDnYKCSL43n8",
+    "Elephant Yam": "https://images.app.goo.gl/LZXLjT4pgu33n9mK6",
 }
 
 data = pd.DataFrame({
-    "Vegetable": ["Tomato", "Spinach", "Carrot", "Broccoli", "Potato"],
-    "Avg_Price": [12.5, 8.0, 10.2, 14.3, 7.5],
-    "Predicted_Date": ["2025-04-08"] * 5,
+    "Vegetable": list(veggie_images.keys()),  # Use keys from veggie_images
+    "Avg_Price": [12.5, 9.0, 10.2, 14.3, 7.5, 8.2, 15.0, 11.0, 7.8, 6.5, 13.2],  # Add prices for new vegetables
+    "Predicted_Date": ["2025-04-08"] * len(veggie_images),  # Adjust length for all vegetables
 })
 
 # --- Prediction models ---
@@ -101,9 +107,33 @@ st.subheader("Accurate, Creative and Easy-to-Use Pricing Tool")
 
 # --- Sidebar ---
 with st.sidebar:
-    if lottie_veggie:
-        st_lottie(lottie_veggie, height=200)
-    st.markdown("**Select a vegetable and a model to predict pricing trends.**")
+    # ... (Lottie animation and other sidebar elements)
+
+    # --- Search Options ---
+    st.markdown("### Search Options")
+    search_term = st.text_input("Search by Vegetable Name:")
+    start_date = st.date_input("Start Date:")
+    end_date = st.date_input("End Date:")
+    min_price = st.number_input("Minimum Price:", value=0.0)
+    max_price = st.number_input("Maximum Price:", value=100.0)
+
+    # --- Filter Data ---
+    filtered_data = data.copy()  # Create a copy of the original data
+
+    if search_term:
+        filtered_data = filtered_data[filtered_data["Vegetable"].str.contains(search_term, case=False)]
+    
+    # Filter by date (assuming your data has a 'Date' column)
+    # Replace 'Date' with the actual date column name in your DataFrame
+    filtered_data['Predicted_Date'] = pd.to_datetime(filtered_data['Predicted_Date'])  # Convert to datetime
+    filtered_data = filtered_data[(filtered_data['Predicted_Date'] >= pd.Timestamp(start_date)) & 
+                                     (filtered_data['Predicted_Date'] <= pd.Timestamp(end_date))]
+
+    filtered_data = filtered_data[(filtered_data["Avg_Price"] >= min_price) & (filtered_data["Avg_Price"] <= max_price)]
+
+    # --- Display Filtered Data ---
+    st.markdown("### Filtered Results")
+    st.dataframe(filtered_data)
 
     # --- User Input for Vegetable ---
     user_input = st.text_input("Enter Vegetable Name:", "")
