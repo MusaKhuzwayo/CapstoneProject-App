@@ -124,7 +124,7 @@ with st.sidebar:
     
     # --- Main Content Area ---
     if st.button("Predict"):
-    with st.spinner("Crunching the numbers..."):
+        with st.spinner("Crunching the numbers..."):
         time.sleep(2)  # simulate prediction
 
         # --- Error handling ---
