@@ -121,8 +121,7 @@ if st.button("Predict"):
 
         if selected_veg not in veggie_images:
             st.error("Invalid vegetable selection.")
-            return
-
+            
         result = predict_price(model, selected_veg)
 
         col1, col2, col3 = st.columns([1, 2, 1])
