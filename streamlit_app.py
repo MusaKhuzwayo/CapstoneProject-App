@@ -158,5 +158,5 @@ with st.sidebar:
 
 # --- Footer ---
 st.markdown("---")
-st.markdown("Made with ❤️ using Streamlit | © 2025 Your Name")
+st.markdown("Made with ❤️ using Streamlit | © 2025 Musa Khuzwayo")
 #Removed the extra code that was causing the IndentationError because it was outside the main execution flow or any function.
