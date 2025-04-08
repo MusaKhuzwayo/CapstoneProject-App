@@ -1,2 +1,10 @@
 streamlit
 pandas
+streamlit
+streamlit-lottie
+scikit-learn
+prophet
+fuzzywuzzy
+python-Levenshtein
+plotly
+pandas
