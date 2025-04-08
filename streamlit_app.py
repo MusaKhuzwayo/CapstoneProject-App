@@ -1,14 +1,3 @@
-pip install streamlit   install streaMLIT
-pip install streamlit-lottie
-pip install scikit-learn
-pip install prophet
-pip install fuzzywuzzy
-pip install python-Levenshtein
-pip install plotly 
-pip install pandas
-pip install streaMLIT
-
-
 import streamlit as st
 import pandas as pd
 import numpy as np
