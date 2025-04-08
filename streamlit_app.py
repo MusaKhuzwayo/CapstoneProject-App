@@ -136,7 +136,7 @@ with st.sidebar:
             col1, col2 = st.columns([1, 1])
 
             with col1:
-            st.image(veggie_images[selected_veg], caption=selected_veg, use_container_width=True)
+                st.image(veggie_images[selected_veg], caption=selected_veg, use_container_width=True)
 
             with col2:
                 st.markdown(f"### 🥗 Prediction Results for {selected_veg}")
